@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Privacy Policy — ChronoWeather Bot</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+            rel="stylesheet">
+        <style>
+            :root {
+                --bg: #0e0f11;
+                --surface: #16181c;
+                --border: #2a2d35;
+                --accent: #4ade80;
+                --accent-dim: rgba(74, 222, 128, 0.08);
+                --text: #e2e8f0;
+                --text-muted: #6b7280;
+                --text-dim: #9ca3af;
+                --mono: 'IBM Plex Mono', monospace;
+                --sans: 'IBM Plex Sans', sans-serif;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background: var(--bg);
+                color: var(--text);
+                font-family: var(--sans);
+                font-weight: 300;
+                line-height: 1.75;
+                min-height: 100vh;
+            }
+
+            /* ── Header ── */
+            header {
+                border-bottom: 1px solid var(--border);
+                padding: 2rem 0;
+                position: sticky;
+                top: 0;
+                background: rgba(14, 15, 17, 0.92);
+                backdrop-filter: blur(12px);
+                z-index: 100;
+            }
+
+            .header-inner {
+                max-width: 780px;
+                margin: 0 auto;
+                padding: 0 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                font-family: var(--mono);
+                font-size: 0.85rem;
+                color: var(--accent);
+                letter-spacing: 0.05em;
+            }
+
+            .logo-dot {
+                width: 8px;
+                height: 8px;
+                background: var(--accent);
+                border-radius: 50%;
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+            @keyframes pulse {
+
+                0%,
+                100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+
+                50% {
+                    opacity: 0.4;
+                    transform: scale(0.7);
+                }
+            }
+
+            .lang-toggle {
+                display: flex;
+                gap: 0;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                overflow: hidden;
+            }
+
+            .lang-btn {
+                background: none;
+                border: none;
+                color: var(--text-muted);
+                font-family: var(--mono);
+                font-size: 0.75rem;
+                padding: 0.35rem 0.75rem;
+                cursor: pointer;
+                transition: all 0.2s;
+                letter-spacing: 0.05em;
+            }
+
+            .lang-btn.active {
+                background: var(--accent);
+                color: #000;
+                font-weight: 600;
+            }
+
+            .lang-btn:hover:not(.active) {
+                background: var(--surface);
+                color: var(--text);
+            }
+
+            /* ── Layout ── */
+            main {
+                max-width: 780px;
+                margin: 0 auto;
+                padding: 4rem 2rem 6rem;
+            }
+
+            /* ── Title block ── */
+            .title-block {
+                margin-bottom: 3.5rem;
+                padding-bottom: 2.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .label {
+                font-family: var(--mono);
+                font-size: 0.7rem;
+                color: var(--accent);
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                font-size: clamp(1.8rem, 4vw, 2.6rem);
+                font-weight: 600;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .subtitle {
+                color: var(--text-dim);
+                font-size: 0.9rem;
+                font-family: var(--mono);
+            }
+
+            /* ── Sections ── */
+            .section {
+                margin-bottom: 2.5rem;
+                padding: 1.75rem;
+                background: var(--surface);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 3px;
+                height: 100%;
+                background: var(--accent);
+                opacity: 0.5;
+            }
+
+            .section-num {
+                font-family: var(--mono);
+                font-size: 0.65rem;
+                color: var(--accent);
+                letter-spacing: 0.1em;
+                margin-bottom: 0.5rem;
+                opacity: 0.7;
+            }
+
+            h2 {
+                font-size: 1.05rem;
+                font-weight: 600;
+                margin-bottom: 0.9rem;
+                color: var(--text);
+            }
+
+            p {
+                color: var(--text-dim);
+                font-size: 0.92rem;
+                margin-bottom: 0.6rem;
+            }
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0.5rem 0;
+            }
+
+            ul li {
+                color: var(--text-dim);
+                font-size: 0.92rem;
+                padding: 0.25rem 0 0.25rem 1.2rem;
+                position: relative;
+            }
+
+            ul li::before {
+                content: '→';
+                position: absolute;
+                left: 0;
+                color: var(--accent);
+                font-family: var(--mono);
+                font-size: 0.8rem;
+                opacity: 0.7;
+            }
+
+            /* ── Highlight box ── */
+            .highlight {
+                background: var(--accent-dim);
+                border: 1px solid rgba(74, 222, 128, 0.2);
+                border-radius: 8px;
+                padding: 1rem 1.25rem;
+                margin-top: 1rem;
+                font-family: var(--mono);
+                font-size: 0.82rem;
+                color: var(--accent);
+                line-height: 1.6;
+            }
+
+            /* ── Contact ── */
+            .contact-block {
+                margin-top: 3rem;
+                padding: 1.5rem;
+                border: 1px dashed var(--border);
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .contact-block p {
+                margin: 0;
+                font-size: 0.85rem;
+            }
+
+            .contact-link {
+                font-family: var(--mono);
+                font-size: 0.82rem;
+                color: var(--accent);
+                text-decoration: none;
+                border: 1px solid rgba(74, 222, 128, 0.3);
+                padding: 0.4rem 1rem;
+                border-radius: 6px;
+                white-space: nowrap;
+                transition: all 0.2s;
+            }
+
+            .contact-link:hover {
+                background: var(--accent-dim);
+            }
+
+            /* ── Footer ── */
+            footer {
+                text-align: center;
+                padding: 2rem;
+                font-family: var(--mono);
+                font-size: 0.72rem;
+                color: var(--text-muted);
+                border-top: 1px solid var(--border);
+                letter-spacing: 0.05em;
+            }
+
+            /* ── Lang visibility ── */
+            [data-lang] {
+                display: none;
+            }
+
+            body.ru [data-lang="ru"] {
+                display: block;
+            }
+
+            body.en [data-lang="en"] {
+                display: block;
+            }
+
+            .lang-inline {
+                display: none;
+            }
+
+            body.ru .lang-inline.ru {
+                display: inline;
+            }
+
+            body.en .lang-inline.en {
+                display: inline;
+            }
+
+            /* ── Responsive ── */
+            @media (max-width: 540px) {
+                main {
+                    padding: 2.5rem 1.25rem 4rem;
+                }
+
+                .section {
+                    padding: 1.25rem;
+                }
+
+                .contact-block {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="ru">
+
+        <header>
+            <div class="header-inner">
+                <div class="logo">
+                    <div class="logo-dot"></div>
+                    ChronoWeather_bot
+                </div>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+                    <button class="lang-btn" onclick="setLang('en')">EN</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- ── Title ── -->
+            <div class="title-block">
+                <div class="label">Legal document</div>
+                <h1>
+                    <span class="lang-inline ru">Политика конфиденциальности</span>
+                    <span class="lang-inline en">Privacy Policy</span>
+                </h1>
+                <div class="subtitle">
+                    <span class="lang-inline ru">Последнее обновление: май 2025 · @ChronoWeather_bot</span>
+                    <span class="lang-inline en">Last updated: May 2025 · @ChronoWeather_bot</span>
+                </div>
+            </div>
+
+            <!-- ── 1. General ── -->
+            <div class="section">
+                <div class="section-num">01</div>
+                <div data-lang="ru">
+                    <h2>Общие положения</h2>
+                    <p>Настоящая Политика конфиденциальности описывает, какие данные собирает бот
+                        <strong>@ChronoWeather_bot</strong> («Бот»), как они используются и как защищаются.</p>
+                    <p>Используя Бот, вы соглашаетесь с условиями данной Политики. Если вы не согласны — пожалуйста,
+                        прекратите использование Бота.</p>
+                </div>
+                <div data-lang="en">
+                    <h2>General</h2>
+                    <p>This Privacy Policy describes what data <strong>@ChronoWeather_bot</strong> ("the Bot") collects,
+                        how it is used, and how it is protected.</p>
+                    <p>By using the Bot, you agree to this Policy. If you do not agree, please discontinue use of the
+                        Bot.</p>
+                </div>
+            </div>
+
+            <!-- ── 2. Data collected ── -->
+            <div class="section">
+                <div class="section-num">02</div>
+                <div data-lang="ru">
+                    <h2>Какие данные собираются</h2>
+                    <p>Бот собирает только минимально необходимый набор данных:</p>
+                    <ul>
+                        <li><strong>Telegram User ID</strong> — числовой идентификатор для отправки уведомлений по
+                            подпискам</li>
+                        <li><strong>Telegram Username</strong> — только при отправке обращения в поддержку, для
+                            идентификации отправителя</li>
+                        <li><strong>Выбранные маршруты и подписки</strong> — для персонализированных уведомлений об
+                            изменении прогноза</li>
+                        <li><strong>Текст обращений в поддержку</strong> — если вы самостоятельно отправили сообщение
+                            через функцию обратной связи</li>
+                    </ul>
+                    <div class="highlight">
+                        ✦ Бот не запрашивает и не хранит: имя, фамилию, номер телефона, геолокацию, фото, платёжные
+                        данные или любую другую персональную информацию.
+                    </div>
+                </div>
+                <div data-lang="en">
+                    <h2>Data collected</h2>
+                    <p>The Bot collects only the minimum data required to function:</p>
+                    <ul>
+                        <li><strong>Telegram User ID</strong> — a numeric identifier used to deliver subscription
+                            notifications</li>
+                        <li><strong>Telegram Username</strong> — only when you submit a support request, to identify the
+                            sender</li>
+                        <li><strong>Selected routes and subscriptions</strong> — to send personalised forecast change
+                            alerts</li>
+                        <li><strong>Support message text</strong> — only if you voluntarily send a message via the
+                            feedback feature</li>
+                    </ul>
+                    <div class="highlight">
+                        ✦ The Bot does not request or store: full name, phone number, location, photos, payment details,
+                        or any other personal information.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── 3. How data is used ── -->
+            <div class="section">
+                <div class="section-num">03</div>
+                <div data-lang="ru">
+                    <h2>Как используются данные</h2>
+                    <ul>
+                        <li>Отправка push-уведомлений при изменении прогноза погоды по подписанным маршрутам</li>
+                        <li>Ответ на обращения в поддержку</li>
+                        <li>Восстановление подписок при перезапуске сервиса</li>
+                    </ul>
+                    <p>Данные не используются в рекламных целях, не передаются третьим лицам и не продаются.</p>
+                </div>
+                <div data-lang="en">
+                    <h2>How data is used</h2>
+                    <ul>
+                        <li>Sending push notifications when the weather forecast changes for subscribed routes</li>
+                        <li>Responding to support requests</li>
+                        <li>Restoring subscriptions after service restarts</li>
+                    </ul>
+                    <p>Data is not used for advertising, is not shared with third parties, and is not sold.</p>
+                </div>
+            </div>
+
+            <!-- ── 4. Data storage ── -->
+            <div class="section">
+                <div class="section-num">04</div>
+                <div data-lang="ru">
+                    <h2>Хранение данных</h2>
+                    <p>Данные хранятся в локальной базе данных SQLite на сервере Бота. Доступ к базе данных ограничен и
+                        защищён.</p>
+                    <p>Данные хранятся до тех пор, пока активна подписка. При отписке от всех маршрутов ваши данные
+                        могут быть удалены по запросу.</p>
+                    <p>Бот не использует облачные хранилища, аналитические сервисы или трекеры.</p>
+                </div>
+                <div data-lang="en">
+                    <h2>Data storage</h2>
+                    <p>Data is stored in a local SQLite database on the Bot's server. Access to the database is
+                        restricted and secured.</p>
+                    <p>Data is retained while subscriptions are active. Upon unsubscribing from all routes, your data
+                        may be deleted upon request.</p>
+                    <p>The Bot does not use cloud storage, analytics services, or trackers.</p>
+                </div>
+            </div>
+
+            <!-- ── 5. Third-party services ── -->
+            <div class="section">
+                <div class="section-num">05</div>
+                <div data-lang="ru">
+                    <h2>Сторонние сервисы</h2>
+                    <p>Для работы Бот взаимодействует со следующими внешними сервисами:</p>
+                    <ul>
+                        <li><strong>Telegram Bot API</strong> — платформа для доставки сообщений</li>
+                        <li><strong>Google Weather API (WeatherNext 2)</strong> — источник метеоданных. Запросы содержат
+                            только координаты маршрутных точек, без каких-либо пользовательских данных</li>
+                        <li><strong>Google Maps</strong> — опциональное открытие маршрута по ссылке в браузере
+                            пользователя</li>
+                    </ul>
+                    <p>Запросы к Google API не содержат и не передают данные пользователей Бота.</p>
+                </div>
+                <div data-lang="en">
+                    <h2>Third-party services</h2>
+                    <p>The Bot interacts with the following external services:</p>
+                    <ul>
+                        <li><strong>Telegram Bot API</strong> — message delivery platform</li>
+                        <li><strong>Google Weather API (WeatherNext 2)</strong> — weather data source. Requests contain
+                            only route point coordinates — no user data</li>
+                        <li><strong>Google Maps</strong> — optional route link that opens in the user's browser</li>
+                    </ul>
+                    <p>API requests to Google do not include or transmit any Bot user data.</p>
+                </div>
+            </div>
+
+            <!-- ── 6. User rights ── -->
+            <div class="section">
+                <div class="section-num">06</div>
+                <div data-lang="ru">
+                    <h2>Ваши права</h2>
+                    <p>Вы вправе в любой момент:</p>
+                    <ul>
+                        <li>Отписаться от всех маршрутов — кнопка «Отписаться» в меню Бота</li>
+                        <li>Запросить удаление всех своих данных — через обратную связь в Боте</li>
+                        <li>Запросить информацию о том, какие данные о вас хранятся</li>
+                    </ul>
+                    <p>Запросы на удаление данных обрабатываются в течение 7 рабочих дней.</p>
+                </div>
+                <div data-lang="en">
+                    <h2>Your rights</h2>
+                    <p>You may at any time:</p>
+                    <ul>
+                        <li>Unsubscribe from all routes — use the "Unsubscribe" button in the Bot menu</li>
+                        <li>Request deletion of all your data — via the Bot's feedback feature</li>
+                        <li>Request information about what data is stored about you</li>
+                    </ul>
+                    <p>Data deletion requests are processed within 7 business days.</p>
+                </div>
+            </div>
+
+            <!-- ── 7. Children ── -->
+            <div class="section">
+                <div class="section-num">07</div>
+                <div data-lang="ru">
+                    <h2>Дети</h2>
+                    <p>Бот не предназначен для лиц младше 13 лет. Мы сознательно не собираем данные детей. Если вам
+                        стало известно, что ребёнок использует Бот — пожалуйста, свяжитесь с нами.</p>
+                </div>
+                <div data-lang="en">
+                    <h2>Children</h2>
+                    <p>The Bot is not intended for users under the age of 13. We do not knowingly collect data from
+                        children. If you become aware that a child is using the Bot, please contact us.</p>
+                </div>
+            </div>
+
+            <!-- ── 8. Changes ── -->
+            <div class="section">
+                <div class="section-num">08</div>
+                <div data-lang="ru">
+                    <h2>Изменения политики</h2>
+                    <p>Мы можем обновлять данную Политику. Дата последнего обновления указана в заголовке документа. При
+                        существенных изменениях подписчики Бота будут уведомлены.</p>
+                </div>
+                <div data-lang="en">
+                    <h2>Changes to this Policy</h2>
+                    <p>We may update this Policy from time to time. The date of the latest revision is shown in the
+                        document header. In the event of material changes, Bot subscribers will be notified.</p>
+                </div>
+            </div>
+
+            <!-- ── Contact ── -->
+            <div class="contact-block">
+                <p>
+                    <span class="lang-inline ru"
+                        style="display:block; color: var(--text-dim); font-size: 0.85rem;">Вопросы по конфиденциальности
+                        — через обратную связь в Боте.</span>
+                    <span class="lang-inline en"
+                        style="display:block; color: var(--text-dim); font-size: 0.85rem;">Privacy questions — via the
+                        feedback feature inside the Bot.</span>
+                </p>
+                <a href="https://t.me/ChronoWeather_bot" class="contact-link">→ @ChronoWeather_bot</a>
+            </div>
+
+        </main>
+
+        <footer>
+            © 2025 ChronoWeather_bot &nbsp;·&nbsp;
+            <span class="lang-inline ru">Все права защищены</span>
+            <span class="lang-inline en">All rights reserved</span>
+        </footer>
+
+        <script>
+            function setLang(lang) {
+                document.body.className = lang;
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+                });
+            }
+        </script>
+
+    </body>
+
+</html>
