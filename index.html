@@ -353,7 +353,7 @@
                     <span class="lang-inline en">Privacy Policy</span>
                 </h1>
                 <div class="subtitle">
-                    <span class="lang-inline ru">Последнее обновление: май 2026 · @ChronoWeather_bot</span>
+                    <span class="lang-inline ru">Последнее обновление: май 2026 · @ChronoWeather</span>
                     <span class="lang-inline en">Last updated: May 2026 · @ChronoWeather</span>
                 </div>
             </div>
@@ -470,24 +470,31 @@
                     <h2>Сторонние сервисы</h2>
                     <p>Для работы Бот взаимодействует со следующими внешними сервисами:</p>
                     <ul>
-                        <li><strong>Telegram Bot API</strong> — платформа для доставки сообщений</li>
-                        <li><strong>Google Weather API (WeatherNext 2)</strong> — источник метеоданных. Запросы содержат
-                            только координаты маршрутных точек, без каких-либо пользовательских данных</li>
-                        <li><strong>Google Maps</strong> — опциональное открытие маршрута по ссылке в браузере
+                        <li><strong>Telegram Bot API</strong> — платформа для доставки сообщений и работы интерфейса
+                        </li>
+                        <li><strong>Google Weather API (WeatherNext 2)</strong> — источник метеоданных для велосипедных
+                            маршрутов. Запросы содержат только координаты точек, без личных данных пользователей</li>
+                        <li><strong>Open-Meteo API (Atmospheric & Marine)</strong> — источник метеорологических и
+                            гидродинамических данных (высота и период волн) для каякинга. Запросы полностью анонимны
+                        </li>
+                        <li><strong>Google Maps</strong> — опциональное открытие дорожных маршрутов по ссылке в браузере
                             пользователя</li>
                     </ul>
-                    <p>Запросы к Google API не содержат и не передают данные пользователей Бота.</p>
+                    <p>Запросы к внешним API не содержат, не передают и не связывают персональные данные пользователей
+                        Бота.</p>
                 </div>
                 <div data-lang="en">
                     <h2>Third-party services</h2>
                     <p>The Bot interacts with the following external services:</p>
                     <ul>
-                        <li><strong>Telegram Bot API</strong> — message delivery platform</li>
-                        <li><strong>Google Weather API (WeatherNext 2)</strong> — weather data source. Requests contain
-                            only route point coordinates — no user data</li>
+                        <li><strong>Telegram Bot API</strong> — message delivery and interface platform</li>
+                        <li><strong>Google Weather API (WeatherNext 2)</strong> — weather data source for cycling
+                            routes. Requests contain only point coordinates — no user data</li>
+                        <li><strong>Open-Meteo API (Atmospheric & Marine)</strong> — weather and wave data source
+                            (height and period) for kayaking. Requests are completely anonymous</li>
                         <li><strong>Google Maps</strong> — optional route link that opens in the user's browser</li>
                     </ul>
-                    <p>API requests to Google do not include or transmit any Bot user data.</p>
+                    <p>API requests to external services do not include or transmit any personal Bot user data.</p>
                 </div>
             </div>
 
@@ -564,7 +571,7 @@
         </main>
 
         <footer>
-            © 2025 ChronoWeather &nbsp;·&nbsp;
+            © 2026 ChronoWeather &nbsp;·&nbsp;
             <span class="lang-inline ru">Все права защищены</span>
             <span class="lang-inline en">All rights reserved</span>
         </footer>
